@@ -1,0 +1,84 @@
+Angular helps in developing a single page application 
+Angular is module based..
+
+Typescript -> javascript with strongly data types. 
+
+default module -: AppModule
+
+
+  Order-processing module
+        -- Create Order
+        -- display Order
+        -- delete Order
+        -- update order
+
+ Security module
+      --Login component
+      -- SignUp component
+      -- Forgot password component
+
+
+
+one way bindings from 
+      interpolation = {{typescriptproperty}}   -- component to template
+      (eventname) = "typescriptfunction()" -- template to component
+      [propertyname] = "typescriptproperty" -- component to template
+
+two way binding
+     1. import FormsModule in the app.modules.ts
+     2. use ngModel in the template using brackets [()]   banana in the box.
+     3. bind ngModel with the typescript property from component
+
+
+modules are the basic block in angular. 
+Angular application will look for modules to call the components in angular
+default module in angular is appModule...
+to create a module we need to use a decorator called @NgModule({})
+to change the default landing module go to main.ts file and change the default bootstrap module
+
+
+@NgModule decorator has following important properties
+
+   declarations:- it is an array where you can define the components related to the module
+   imports :- it is an array where you can define the other modules used in this module
+   providers:- it is an array where you can inject the services to the modules
+   bootstrap:- it tells that which component will automatically called when the module will load
+
+
+
+component is the small block used by the modules.
+it is a class with @component() decorator
+
+-- when you create a new component
+          -- a typescript class with @component decorator
+          -- an html file particular to the component (template)
+          -- a style file (css/scss)
+          -- a typescript file to write unit test (spec.ts)
+
+
+          To generate a component use the command
+
+          ng generate component <component-name>
+          ng g c <component-name>
+
+
+
+
+
+path-->    Component--> template-->
+
+
+
+
+3 types of directives are there in angular
+
+structural directives
+class directives
+attribute directives
+
+
+structural directives:- they are used to created/destroy/show/hide the html elements
+they always start with * (asterik) symbol
+*ngIf
+*ngFor
+*ngSwitch
