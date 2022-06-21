@@ -1,0 +1,10 @@
+<p>employee-create works!</p>
+ 
+<form #addemployee="ngForm" (submit)="insert(addemployee)">
+    <div class="mb-3">
+        <label for="FirstName"> FirstName </label> 
+        <input id="firstName" [(ngModel)]="employee.FirstName" name="firstName" class="form-control" /> 
+    </div>  
+    <input type="submit" value="Add Employee" class="btn btn-primary"/> 
+</form> 
+ 

@@ -82,3 +82,10 @@ they always start with * (asterik) symbol
 *ngIf
 *ngFor
 *ngSwitch
+
+
+Module 
+
+ng g modulename
+
+ng g m Employee --route=EmployeeRoute --module=app
