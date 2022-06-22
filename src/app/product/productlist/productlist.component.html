@@ -1,1 +1,41 @@
-<p>productlist works!</p>
+<a [routerLink]="'/product/add'" class="btn btn-primary">Add Product</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>SupplierId</th>
+            <th>CategoryId</th>
+            <th>QuantityPerUnit</th>
+            <th>UnitPrice</th>
+            <th>UnitInStock</th>
+            <th>UnitOnOrder</th>
+            <th>ReorderLevel</th>
+            <th>Discontinued</th>
+            <th>Option</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let p of products">
+            <td>{{p.id}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.supplierId}}</td>
+            <td>{{p.categoryId}}</td>
+            <td>{{p.quantityPerUnit}}</td>
+            <td>{{p.unitPrice}}</td>
+            <td>{{p.unitInStock}}</td>
+            <td>{{p.unitOnOrder}}</td>
+            <td>{{p.reorderLevel}}</td>
+            <td>{{p.discontinued}}</td>
+            <td> 
+                <span> 
+                    <a [routerLink]="['/product/edit, p.id']"> Edit</a>
+                </span>
+                <span>&nbsp;</span>
+                <span> 
+                    <a [routerLink]="['/product/delete, p.id']"> Edit</a>
+                </span>
+            </td>
+        </tr>
+    </tbody>
+</table>

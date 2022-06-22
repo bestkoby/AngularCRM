@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ShipperService } from 'src/services/shipper.service';
 
 @Component({
   selector: 'app-shipperlist',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShipperlistComponent implements OnInit {
 
-  constructor() { }
+  shippers:any=[]
+
+  constructor(private shipperService:ShipperService ) { }
 
   ngOnInit(): void {
+    this.shipperService.getShipper().subscribe((data)=>{
+      this.shippers = data
+
+    })
   }
 
 }

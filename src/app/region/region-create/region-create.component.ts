@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-region-create',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegionCreateComponent implements OnInit {
 
-  constructor() { }
+  addRegionForm:FormGroup; 
+  loadregion={
+    "regionName" : "regionName",
+    "regionDescrip":"regionDescrip" 
+  };
+  constructor() {
+    this.addRegionForm=new FormGroup({
+      'regionName':new FormControl("",[Validators.required,Validators.minLength(4)] ),
+      'regionDescrip':new FormControl()
+
+    });
+    this.addRegionForm.setValue(this.loadregion);
+   }
 
   ngOnInit(): void {
+     
+  }
+  saveRegion() {
+     console.log(this.addRegionForm.value);
   }
 
 }

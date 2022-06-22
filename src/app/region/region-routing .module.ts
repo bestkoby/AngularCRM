@@ -8,8 +8,8 @@ import { RegionListComponent } from "./region-list/region-list.component";
 const routes:Routes=[
     {path:"list",component:RegionListComponent},
     {path:"add",component:RegionCreateComponent},  
-    {path: 'edit', component:RegionEditComponent },
-    {path: 'delete', component: RegionDeleteComponent},
+    {path: 'edit/:id', component:RegionEditComponent },
+    {path: 'delete/:id', component: RegionDeleteComponent},
 ] 
 
 @NgModule({

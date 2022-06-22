@@ -1,1 +1,30 @@
-<p>customerlist works!</p>
+<a [routerLink]="'/customers/add'" class="btn btn-primary">Add Customers</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Title</th>
+            <th>City</th>
+            <th>phone</th>
+            <th>Option</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of customers">
+            <td>{{c.id}}</td>
+            <td>{{c.name}}</td>
+            <td>{{c.title}}</td>
+            <td>{{c.city}}</td>
+            <td>{{c.phone}}</td>
+            <td>
+           <span>
+           <a [routerLink]="['/customers/edit',c.id]"  >Edit</a>
+           </span>
+           <span>&nbsp;</span>
+           <span>
+           <a [routerLink]="['/customers/edit',c.id]"   >Delete</a>
+           </span>
+           </td>
+        </tr>
+      </tbody>
+  </table>

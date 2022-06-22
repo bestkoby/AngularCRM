@@ -1,1 +1,16 @@
-<p>region-create works!</p>
+ 
+<h1 class="display-4" >Add region </h1>
+<hr/>
+<form [formGroup]="addRegionForm">
+    <div class= "form-group mb-3">
+        <label>Name</label>
+        <input type="text"  formControlName="regionName" class = "form-control"> 
+        <div class="text-danger" *ngIf="addRegionForm.get('regionName')?.hasError('required') && addRegionForm.get('regionName')?.touched">Email is Required</div>
+    </div>
+    <div class= "form-group mb-3"> 
+        <label>Descrip</label>
+        <textarea formControlName="regionDescrip"  class = "form-control"> </textarea>  
+    </div>
+    <input type="button" class="btn btn-primary" (click) = 'saveRegion()' [disabled] = "!addRegionForm.valid" value="Save">
+ 
+</form>

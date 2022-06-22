@@ -6,6 +6,8 @@ import { ProductlistComponent } from './productlist/productlist.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ProductCreateComponent } from './product-create/product-create.component';
 import { ProductDeleteComponent } from './product-delete/product-delete.component';
+import { ProductService } from 'src/services/product.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,7 +19,11 @@ import { ProductDeleteComponent } from './product-delete/product-delete.componen
   ],
   imports: [
     CommonModule,
-    ProductRoutingModule
+    ProductRoutingModule,
+    HttpClientModule
+  ],
+  providers:[
+    ProductService
   ]
 })
 export class ProductModule { }

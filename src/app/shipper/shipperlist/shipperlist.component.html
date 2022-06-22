@@ -1,1 +1,27 @@
-<p>shipperlist works!</p>
+<a [routerLink]="'/shipper/add'" class="btn btn-primary">Add Shipper</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Phone</th> 
+            <th>Option</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let s of shippers">
+            <td>{{s.id}}</td>
+            <td>{{s.name}}</td>
+            <td>{{s.phone}}</td> 
+            <td>
+           <span>
+           <a [routerLink]="['/shippers/edit',s.id]"  >Edit</a>
+           </span>
+           <span>&nbsp;</span>
+           <span>
+           <a [routerLink]="['/shippers/edit',s.id]"   >Delete</a>
+           </span>
+           </td>
+        </tr>
+      </tbody>
+  </table>

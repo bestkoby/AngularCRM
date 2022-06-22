@@ -1,1 +1,15 @@
-<p>employeelist works!</p>
+<a [routerLink]="'/employee/add'" class="btn btn-primary">Add Employee</a>
+<div class="row"  >
+    <div class="col mb-3" *ngFor="let e of employees">
+        <div class="card" style="width: 18rem;">
+            <img src={{e.photoPath}} class="card-img-top" alt="..."  style="width:280px;height:200px;">
+            <div class="card-body">
+                <h5 class="card-title">{{e.id}}</h5>
+                <p class="card-text">{{e.address}}</p>
+                <a  [routerLink]="['/employee/edit',e.id]" class="btn btn-primary">Edit</a>
+            <a class="btn bg-danger" [routerLink]="['/employee/delete',e.id]"   >Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+ 

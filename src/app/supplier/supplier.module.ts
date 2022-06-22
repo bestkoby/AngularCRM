@@ -6,6 +6,8 @@ import { SupplierlistComponent } from './supplierlist/supplierlist.component';
 import { SupplierEditComponent } from './supplier-edit/supplier-edit.component';
 import { SupplierCreateComponent } from './supplier-create/supplier-create.component';
 import { SupplierDeleteComponent } from './supplier-delete/supplier-delete.component';
+import { SupplierService } from 'src/services/supplier.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,7 +19,11 @@ import { SupplierDeleteComponent } from './supplier-delete/supplier-delete.compo
   ],
   imports: [
     CommonModule,
-    SupplierRoutingModule
+    SupplierRoutingModule,
+    HttpClientModule
+  ],
+  providers:[
+    SupplierService
   ]
 })
 export class SupplierModule { }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-category-create',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryCreateComponent implements OnInit {
 
-  constructor() { }
+  addcategoryForm:FormGroup;
+
+
+  constructor() {
+    this.addcategoryForm=new FormGroup({
+      "categoryName": new FormControl("",Validators.required),
+      "categoryDescrip":new FormControl("",Validators.required)
+    })
+   }
 
   ngOnInit(): void {
+  }
+
+  save(){
+    console.log(this.addcategoryForm.value)
   }
 
 }

@@ -1,1 +1,27 @@
-<p>categorylist works!</p>
+<a [routerLink]="'/category/add'" class="btn btn-primary">Add Category</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th> 
+            <th>Option</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of categorys">
+            <td>{{c.id}}</td>
+            <td>{{c.name}}</td>
+            <td>{{c.description}}</td> 
+            <td>
+           <span>
+           <a [routerLink]="['/category/edit',c.id]"  >Edit</a>
+           </span>
+           <span>&nbsp;</span>
+           <span>
+           <a [routerLink]="['/category/edit',c.id]"  >Delete</a>
+           </span>
+           </td>
+        </tr>
+      </tbody>
+  </table>

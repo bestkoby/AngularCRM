@@ -6,6 +6,9 @@ import { CategorylistComponent } from './categorylist/categorylist.component';
 import { CategoryCreateComponent } from './category-create/category-create.component';
 import { CategoryEditComponent } from './category-edit/category-edit.component'; 
 import { CategoryDeleteComponent } from './category-delete/category-delete.component';
+import { CategoryService } from 'src/services/category.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [ 
@@ -16,7 +19,12 @@ import { CategoryDeleteComponent } from './category-delete/category-delete.compo
   ],
   imports: [
     CommonModule,
-    CategoryRoutingModule
+    CategoryRoutingModule, 
+    HttpClientModule,
+    ReactiveFormsModule
+  ],
+  providers:[
+    CategoryService
   ]
 })
 export class CategoryModule { }

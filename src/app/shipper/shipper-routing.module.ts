@@ -8,8 +8,8 @@ import { ShipperlistComponent } from './shipperlist/shipperlist.component';
 const routes: Routes = [
   { path: 'add', component: ShipperCreateComponent},
   { path: 'list', component: ShipperlistComponent },
-  { path: 'edit', component: ShipperEditComponent},
-  { path: 'delete', component: ShipperDeleteComponent},
+  { path: 'edit/:id', component: ShipperEditComponent},
+  { path: 'delete/:id', component: ShipperDeleteComponent},
 ];
 
 @NgModule({

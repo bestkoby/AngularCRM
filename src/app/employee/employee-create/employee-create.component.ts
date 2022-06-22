@@ -34,5 +34,7 @@ export class EmployeeCreateComponent implements OnInit {
     console.log(form.value);
 
   }
-
+  resetPage(form:NgForm){
+    form.reset();
+  } 
 }

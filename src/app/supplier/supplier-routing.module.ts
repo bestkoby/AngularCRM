@@ -8,8 +8,8 @@ import { SupplierlistComponent } from './supplierlist/supplierlist.component';
 const routes: Routes = [
   { path: 'add', component: SupplierCreateComponent },
   { path: 'list', component: SupplierlistComponent },
-  { path: 'edit', component: SupplierEditComponent},
-  { path: 'delete', component: SupplierDeleteComponent},
+  {path: 'edit/:id', component:SupplierEditComponent },
+  { path: 'delete/:id', component: SupplierDeleteComponent},
 ];
 
 @NgModule({

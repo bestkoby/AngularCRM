@@ -6,6 +6,8 @@ import { ShipperlistComponent } from './shipperlist/shipperlist.component';
 import { ShipperCreateComponent } from './shipper-create/shipper-create.component';
 import { ShipperEditComponent } from './shipper-edit/shipper-edit.component';
 import { ShipperDeleteComponent } from './shipper-delete/shipper-delete.component';
+import { ShipperService } from 'src/services/shipper.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,7 +19,11 @@ import { ShipperDeleteComponent } from './shipper-delete/shipper-delete.componen
   ],
   imports: [
     CommonModule,
-    ShipperRoutingModule
+    ShipperRoutingModule,
+    HttpClientModule
+  ],
+  providers:[
+    ShipperService
   ]
 })
 export class ShipperModule { }

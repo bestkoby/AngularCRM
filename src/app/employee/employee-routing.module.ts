@@ -8,8 +8,8 @@ import { EmployeeDeleteComponent } from './employee-delete/employee-delete.compo
 const routes:Routes = [
     {path:'list',component:EmployeelistComponent},
     {path:'add',component:EmployeeCreateComponent}, 
-    { path: 'edit', component: EmployeeEditComponent},
-    { path: 'delete', component: EmployeeDeleteComponent},
+    { path: 'edit/:id', component: EmployeeEditComponent},
+    { path: 'delete/:id', component: EmployeeDeleteComponent},
 ] 
 
 @NgModule({

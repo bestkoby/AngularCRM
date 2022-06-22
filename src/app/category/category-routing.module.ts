@@ -8,8 +8,8 @@ import { CategorylistComponent } from './categorylist/categorylist.component';
 const routes: Routes = [
   { path: 'add', component: CategoryCreateComponent },
   { path: 'list', component: CategorylistComponent },
-  { path: 'edit', component: CategoryEditComponent },
-  { path: 'delete', component: CategoryDeleteComponent},
+  { path: 'edit/:id', component: CategoryEditComponent },
+  { path: 'delete/:id', component: CategoryDeleteComponent},
 ];
 
 @NgModule({

@@ -6,6 +6,8 @@ import { EmployeeRoutingModule } from './employee-routing.module';
 import { FormsModule } from '@angular/forms';
 import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
 import { EmployeeDeleteComponent } from './employee-delete/employee-delete.component';
+import { EmployeeService } from 'src/services/employee.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -19,7 +21,11 @@ import { EmployeeDeleteComponent } from './employee-delete/employee-delete.compo
   imports: [
     CommonModule,
     EmployeeRoutingModule,
-    FormsModule
+    FormsModule, 
+    HttpClientModule
+  ],
+  providers:[
+    EmployeeService
   ]
 })
 export class EmployeeModule { }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'; 
+import { RegionService } from 'src/services/region.service';
 
 @Component({
   selector: 'app-region-list',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegionListComponent implements OnInit {
 
-  constructor() { }
+  regions:any=[ ];
+  constructor(private regionService:RegionService) { }
 
   ngOnInit(): void {
+    // this.regionService.getRegion() return observable, which mean no execu  
+    this.regionService.getRegion().subscribe((data)=>{ 
+      this.regions = data;
+      //console.log(this.regions);
+    });
+    
   }
 
 }

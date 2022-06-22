@@ -1,1 +1,19 @@
-<p>category-create works!</p>
+<h1 class="display-4" >Add Category </h1>
+<hr/>
+<form [formGroup]="addcategoryForm">
+    <div class="container">
+        <div class="row">
+            <div class="col mb-5">
+                <label >Name</label>
+                <input type="text"  formControlName="categoryName" class="form-control"/>
+                <div class="text-danger" *ngIf="addcategoryForm.get('categoryName')?.hasError('required') && addcategoryForm.get('categoryName')?.touched">Email is Required</div>
+    
+            </div>
+            <div class="col mb-5">
+                <label>Description</label>
+                <textarea formControlName="categoryDescrip"  class = "form-control"> </textarea>   
+            </div>
+        </div>
+        <input type="submit" class="btn-primary btn" value="Create  Category" [disabled] = "!addcategoryForm.valid" (click) = 'save()'/>
+    </div>
+</form> 

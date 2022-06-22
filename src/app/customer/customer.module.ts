@@ -6,6 +6,8 @@ import { CustomerlistComponent } from './customerlist/customerlist.component';
 import { CustomerCreateComponent } from './customer-create/customer-create.component';
 import { CustomerEditComponent } from './customer-edit/customer-edit.component';
 import { CustomerDeleteComponent } from './customer-delete/customer-delete.component';
+import { CustomerService } from 'src/services/customer.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,7 +19,11 @@ import { CustomerDeleteComponent } from './customer-delete/customer-delete.compo
   ],
   imports: [
     CommonModule,
-    CustomerRoutingModule
+    CustomerRoutingModule, 
+    HttpClientModule
+  ],
+  providers:[
+    CustomerService
   ]
 })
 export class CustomerModule { }
