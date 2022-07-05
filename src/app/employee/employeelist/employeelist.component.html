@@ -1,3 +1,7 @@
+<div *ngIf="isSuccessful"  class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Employee has been Deleted</strong>  
+</div>
+<h1 class="display-4" >Employee List </h1>
 <a [routerLink]="'/employee/add'" class="btn btn-primary">Add Employee</a>
 <div class="row"  >
     <div class="col mb-3" *ngFor="let e of employees">
@@ -7,7 +11,7 @@
                 <h5 class="card-title">{{e.id}}</h5>
                 <p class="card-text">{{e.address}}</p>
                 <a  [routerLink]="['/employee/edit',e.id]" class="btn btn-primary">Edit</a>
-            <a class="btn bg-danger" [routerLink]="['/employee/delete',e.id]"   >Delete</a>
+            <a class="btn bg-danger" (click)="delData(e.id)"   >Delete</a>
             </div>
         </div>
     </div>

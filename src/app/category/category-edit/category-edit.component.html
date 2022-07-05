@@ -1,1 +1,26 @@
-<p>category-edit works!</p>
+<div *ngIf="isSuccessful"  class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Category has been Saved</strong> 
+    <a [routerLink]="'/category/list'">Go to Category List</a>
+</div>
+<h1 class="display-4" >Edit Category </h1>
+<hr/>
+<form [formGroup]="categoryForm">
+    <div class="container">
+        <div class="row">
+            <div class="col mb-5">
+                <label >Name</label>
+                <input type="text"  formControlName="name" class="form-control"/>
+                <div class="text-danger" *ngIf="categoryForm.get('name')?.hasError('required') && categoryForm.get('name')?.touched">Email is Required</div>
+    
+            </div>
+            <div class="col mb-5">
+                <label>Description</label>
+                <textarea formControlName="description"  class = "form-control"> </textarea>   
+                <div class="text-danger" *ngIf="categoryForm.get('description')?.hasError('required') && categoryForm.get('description')?.touched">Description is Required</div>
+            </div>
+        </div>
+        <input type="submit" class="btn-primary btn" value="Edit Category" [disabled] = "!categoryForm.valid" (click) = 'save()'/>
+        <input type="button" value="Reset" class="btn btn-warning" (click) = "reset()" />
+        <input type="button" value="Cancel" class="btn btn-secondary" (click) = "cancel()" /> 
+    </div>
+</form> 

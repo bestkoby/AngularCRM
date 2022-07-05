@@ -7,34 +7,30 @@ import { EmployeeService } from 'src/services/employee.service';
   templateUrl: './employeelist.component.html',
   styleUrls: ['./employeelist.component.scss']
 })
-export class EmployeelistComponent implements OnInit {
-  // employees:Employee[]= [{
-  //   Id:1,
-  //   FirstName: "",
-  //   LastName: "",
-  //   City: "",
-  //   Title: "",
-  //   HireDate: new Date(),
-  //   BirthDate:new Date(),
-  //   TitleOfConrtesy:"",
-  //   RegionId:0,
-  //   Address:"",
-  //   PostalCode:0,
-  //   Phone:"",
-  //   PhotoPath:"",
-  //   Country:"",
-  //   ReportsTo:0 
-  // }]
-
+export class EmployeelistComponent implements OnInit {  
   employees:any=[]
+  isSuccessful:boolean = false; 
 
   constructor(private employeeService:EmployeeService ) { }
 
   ngOnInit(): void {
+    this.getData()
+  }
+
+  getData(){
     this.employeeService.getEmployee().subscribe((data)=>{
       this.employees=data;
-    })
+    }) 
+  }
 
+  delData(id:any){
+    this.employeeService.deleteEmployee(id).subscribe((data)=>{
+      this.getData();
+      this.isSuccessful = true;
+      setTimeout(() => {
+        this.isSuccessful = false;
+      }, 2000);  //2s
+    })
   }
 
 }

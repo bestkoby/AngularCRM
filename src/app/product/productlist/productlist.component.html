@@ -29,12 +29,12 @@
             <td>{{p.discontinued}}</td>
             <td> 
                 <span> 
-                    <a [routerLink]="['/product/edit, p.id']"> Edit</a>
+                    <a [routerLink]="['/product/edit', p.id ]"> Edit</a>
                 </span>
                 <span>&nbsp;</span>
                 <span> 
-                    <a [routerLink]="['/product/delete, p.id']"> Edit</a>
-                </span>
+                    <a [routerLink]="['/product/delete', p.id ]"> Delete</a>
+                </span>'
             </td>
         </tr>
     </tbody>

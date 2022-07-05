@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Employee } from 'src/app/model/employee';
+import { EmployeeService } from 'src/services/employee.service';
 
 @Component({
   selector: 'app-employee-create',
@@ -8,30 +9,33 @@ import { Employee } from 'src/app/model/employee';
   styleUrls: ['./employee-create.component.scss']
 })
 export class EmployeeCreateComponent implements OnInit {
-
-  employee:Employee= {
-    Id:1,
-    FirstName: "",
-    LastName: "",
-    City: "",
-    Title: "",
-    HireDate: new Date(),
-    BirthDate:new Date(),
-    TitleOfConrtesy:"",
-    RegionId:0,
-    Address:"",
-    PostalCode:0,
-    Phone:"",
-    PhotoPath:"",
-    Country:"",
-    ReportsTo:0 
+  isSuccessful:boolean = false
+  employee:Employee ={
+    firstName: '',
+    lastName:'',
+    city:'',
+    title:'',
+    hireDate:new Date(),
+    birthDate:new Date(),
+    regionId:0,
+    reportsTo:0,
+    titleOfConrtesy:'',  
+    id:0,
+    address:"",
+    photoPath:"",
+    phone:"",
+    postalCode:0,
+    country:"" 
   }
-  constructor() { }
+  constructor(private employeeService:EmployeeService) { }
 
   ngOnInit(): void {
-  }
-  insert(form:NgForm){
-    console.log(form.value);
+  } 
+
+  insert(form:NgForm){ 
+    this.employeeService.addEmployee(form.value).subscribe(d=>{
+      this.isSuccessful = true
+    })
 
   }
   resetPage(form:NgForm){

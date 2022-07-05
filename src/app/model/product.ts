@@ -1,11 +1,11 @@
 export interface Product{
-    Id:number,
-    Name:string,
-    SupplierId:string,
-    CategoryId:string,
-    QuantityPerUnit:number,
-    UnitPrice:number,
-    UnitsInStock:number,
-    ReorderLevel:number,
-    Discontinued:boolean
+    id:number,
+    name:string,
+    supplierId:string,
+    categoryId:string,
+    quantityPerUnit:number,
+    unitPrice:number,
+    unitsInStock:number,
+    reorderLevel:number,
+    discontinued:boolean
 }

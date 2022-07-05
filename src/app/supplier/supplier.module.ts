@@ -4,23 +4,23 @@ import { CommonModule } from '@angular/common';
 import { SupplierRoutingModule } from './supplier-routing.module';
 import { SupplierlistComponent } from './supplierlist/supplierlist.component';
 import { SupplierEditComponent } from './supplier-edit/supplier-edit.component';
-import { SupplierCreateComponent } from './supplier-create/supplier-create.component';
-import { SupplierDeleteComponent } from './supplier-delete/supplier-delete.component';
+import { SupplierCreateComponent } from './supplier-create/supplier-create.component'; 
 import { SupplierService } from 'src/services/supplier.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     SupplierlistComponent,
     SupplierEditComponent,
-    SupplierCreateComponent,
-    SupplierDeleteComponent
+    SupplierCreateComponent, 
   ],
   imports: [
     CommonModule,
     SupplierRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers:[
     SupplierService

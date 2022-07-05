@@ -1,1 +1,66 @@
-<p>supplier-create works!</p>
+<div *ngIf="isSuccessful"  class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Supplier has been Added</strong> 
+    <a [routerLink]="'/supplier/list'">Go to Supplier List</a>
+</div>  
+<form [formGroup]="addsupplierform">
+    <h1 class="display-6">Add New Supplier</h1>
+    <hr/>
+    <div class="container">
+        <div class = "row"> 
+                <div class="col my-5">
+                    <label >CompanyName</label> 
+                    <input type="text" formControlName="CompanyName"  class="form-control" placeholder="Enter CompanyName"/> 
+                    <div class="text-danger" *ngIf="addsupplierform.get('CompanyName')?.hasError('required') && addsupplierform.get('CompanyName')?.touched">CompanyName is Required</div>
+                </div>
+                <div class="col my-5">
+                    <label >ContactName</label>
+                    <input type="text" formControlName="ContactName" class="form-control" placeholder="Enter ContactName"/>
+                    <div class="text-danger" *ngIf="addsupplierform.get('ContactName')?.hasError('required') && addsupplierform.get('ContactName')?.touched">ContactName is Required</div>
+                </div>
+                <div class="my-5 col">
+                    <label >ContactTitle</label>
+                    <input type="text" formControlName="ContactTitle" class="form-control" placeholder="Enter ContactTitle"/>
+                    <div class="text-danger" *ngIf="addsupplierform.get('ContactTitle')?.hasError('required') && addsupplierform.get('ContactTitle')?.touched">ContactTitle is Required</div> 
+                </div> 
+        </div>
+        <div class = "row"> 
+               <div class="col my-5">
+                    <label >Address</label>
+                    <input type="text" formControlName="Address" class="form-control" placeholder="Enter Address"/>
+                    <div class="text-danger" *ngIf="addsupplierform.get('Address')?.hasError('required') && addsupplierform.get('Address')?.touched">Address is Required</div>
+                </div>
+                <div class="col my-5">
+                    <label >City</label>
+                    <input type="text" formControlName="City" class="form-control" placeholder="Enter City"/>
+                    <div class="text-danger" *ngIf="addsupplierform.get('City')?.hasError('required') && addsupplierform.get('City')?.touched">City is Required</div>
+                </div>  
+                <div class="col my-5">
+                    <label >RegionId</label>
+                     <select formControlName="RegionId" class="form-control" asp-items="ViewBag.Regions" >
+                                <option value="">Select a Region</option>   
+                            </select>  
+                     <div class="text-danger" *ngIf="addsupplierform.get('RegionId')?.hasError('required') && addsupplierform.get('RegionId')?.touched">RegionId is Required</div>
+                </div>  
+        </div>
+        <div class = "row"> 
+                <div class="col my-5">
+                    <label>  PostalCode</label>
+                    <input  formControlName="PostalCode" class="form-control" placeholder="Enter PostalCode"/>
+                    <div class="text-danger" *ngIf="addsupplierform.get('PostalCode')?.hasError('required') && addsupplierform.get('PostalCode')?.touched">PostalCode is Required</div>
+                </div>
+                <div class="col my-5">
+                    <label >Country</label>
+                    <input type="text" formControlName="Country" class="form-control" placeholder="Enter Country"/>
+                    <div class="text-danger" *ngIf="addsupplierform.get('Country')?.hasError('required') && addsupplierform.get('Country')?.touched">Country is Required</div> 
+                </div>
+                 <div class="col my-5">
+                     <label >Phone</label>
+                    <input type="text" formControlName="Phone" class="form-control" placeholder="Enter Phone"/>
+                    <div class="text-danger" *ngIf="addsupplierform.get('Phone')?.hasError('required') && addsupplierform.get('Phone')?.touched">Phone is Required</div>
+                </div>  
+          </div>
+        <input type="submit" class="btn-primary btn" value="Create"  (click)="addSupplier()" [disabled]="!addsupplierform.valid"/>
+        <input type="button" value="Reset" class="btn btn-warning" (click) = "reset()" />
+        <input type="button" value="Cancel" class="btn btn-secondary" (click) = "cancel()" /> 
+     </div>
+</form>

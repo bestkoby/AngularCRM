@@ -1,1 +1,66 @@
-<p>customer-create works!</p>
+<div *ngIf="isSuccessful"  class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Region has been Saved</strong> 
+    <a [routerLink]="'/customer/list'">Go to Customer List</a>
+</div>
+<h1 class="display-4" >Add Customer </h1>
+<form [formGroup]="addcustomerform"  method="post">
+    <div class="container">
+        <div class="row">
+            <div class="col mb-5">
+                <label >Name</label>
+                <input formControlName="Name" class="form-control"/>
+                <div class="text-danger" *ngIf="addcustomerform.get('Name')?.hasError('required') && addcustomerform.get('Name')?.touched">Email is Required</div>
+            </div>
+            <div class="col mb-5">
+                <label >Title</label>
+                <input formControlName="Title" class="form-control"/>
+                <div class="text-danger" *ngIf="addcustomerform.get('Title')?.hasError('required') && addcustomerform.get('Title')?.touched">Title is Required</div>
+            </div> 
+            <div class="col mb-5">
+                <label >Phone</label>
+                <input formControlName="Phone" class="form-control"/>
+                <div class="text-danger" *ngIf="addcustomerform.get('Phone')?.hasError('required') && addcustomerform.get('Phone')?.touched">Phone is Required</div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col mb-5">
+                <label >Address</label>
+                <input formControlName="Address" class="form-control"/>
+                <div class="text-danger" *ngIf="addcustomerform.get('Address')?.hasError('required') && addcustomerform.get('Address')?.touched">Address is Required</div>
+            </div>
+            <div class="col mb-5">
+                <label >City</label>
+                <input formControlName="City" class="form-control"/>
+                <div class="text-danger" *ngIf="addcustomerform.get('City')?.hasError('required') && addcustomerform.get('City')?.touched">City is Required</div>
+            </div>
+            <div class="col mb-5">
+                <label >RegionId</label>
+                <select formControlName="RegionId" class="form-control" asp-items="ViewBag.Regions" >
+                <option value="">Select a region</option>   
+                </select>
+                <div class="text-danger" *ngIf="addcustomerform.get('RegionId')?.hasError('required') && addcustomerform.get('RegionId')?.touched">RegionId is Required</div>
+            </div>  
+        </div>
+        <div class="row">
+            <div class="col mb-5">
+                <label >City</label>
+                <input formControlName="City" class="form-control"/>
+                <div class="text-danger" *ngIf="addcustomerform.get('City')?.hasError('required') && addcustomerform.get('City')?.touched">City is Required</div>
+            </div>
+            <div class="col mb-5">
+                <label >PostalCode</label>
+                <input formControlName="PostalCode" class="form-control"/>
+                <div class="text-danger" *ngIf="addcustomerform.get('PostalCode')?.hasError('required') && addcustomerform.get('PostalCode')?.touched">PostalCode is Required</div>
+            </div>
+            <div class="col mb-5">
+                <label >Country</label>
+                <input formControlName="Country" class="form-control"/>
+                <div class="text-danger" *ngIf="addcustomerform.get('Country')?.hasError('required') && addcustomerform.get('Country')?.touched">Country is Required</div>
+            </div> 
+        </div>
+        <input type="submit" class="btn-primary btn" value="Create Customer" [disabled]="!addcustomerform.valid" (click)="addCustomer()"/>
+        <input type="button" value="Reset" class="btn btn-warning" (click) = "reset()" />
+        <input type="button" value="Cancel" class="btn btn-secondary" (click) = "cancel()" /> 
+    </div>
+</form>

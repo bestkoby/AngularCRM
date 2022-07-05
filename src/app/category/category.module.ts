@@ -4,8 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CategoryRoutingModule } from './category-routing.module';
 import { CategorylistComponent } from './categorylist/categorylist.component';
 import { CategoryCreateComponent } from './category-create/category-create.component';
-import { CategoryEditComponent } from './category-edit/category-edit.component'; 
-import { CategoryDeleteComponent } from './category-delete/category-delete.component';
+import { CategoryEditComponent } from './category-edit/category-edit.component';  
 import { CategoryService } from 'src/services/category.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -14,8 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [ 
     CategorylistComponent,
     CategoryCreateComponent,
-    CategoryEditComponent,
-    CategoryDeleteComponent
+    CategoryEditComponent, 
   ],
   imports: [
     CommonModule,

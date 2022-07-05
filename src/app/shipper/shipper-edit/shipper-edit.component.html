@@ -1,1 +1,27 @@
-<p>shipper-edit works!</p>
+<div *ngIf="isSuccessful"  class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Shipper has been Edited</strong> 
+    <a [routerLink]="'/shipper/list'">Go to Sshipper List</a>
+</div> 
+<hr/>
+<form [formGroup]="editshipperform" >
+    <h1 class="display-6">Edit New Shipper</h1>
+    <hr/> 
+    <div class="container">
+        <div class="row">
+            <div class="col mb-5">
+                <label>Name </label>  
+                <input formControlName="name" class="form-control" /> 
+                <div class="text-danger" *ngIf="editshipperform.get('name')?.hasError('required') && editshipperform.get('name')?.touched">Name is Required</div> 
+            </div>
+            <div class="col mb-5">
+                <label >Phone</label>
+                <input formControlName="phone" class="form-control"/>
+                <div class="text-danger" *ngIf="editshipperform.get('phone')?.hasError('required') && editshipperform.get('phone')?.touched">Phone is Required</div>
+    
+            </div>
+        </div>
+        <input type="button" class="btn-primary btn" value="Create  Shipper" (click)="editShipper()" [disabled]="!editshipperform.valid"/>
+        <input type="button" value="Reset" class="btn btn-warning" (click) = "reset()" />
+        <input type="button" value="Cancel" class="btn btn-secondary" (click) = "cancel()" /> 
+    </div>
+</form>

@@ -2,25 +2,26 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RegionListComponent } from './region-list/region-list.component';
 import { RegionCreateComponent } from './region-create/region-create.component';
-import { RegionRoutingModule } from './region-routing .module';
-import { RegionDeleteComponent } from './region-delete/region-delete.component';
+import { RegionRoutingModule } from './region-routing .module'; 
 import { RegionEditComponent } from './region-edit/region-edit.component'; 
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegionService } from 'src/services/region.service';
 import { HttpClientModule } from '@angular/common/http';
+import { Router, RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     RegionListComponent,
-    RegionCreateComponent,
-    RegionDeleteComponent,
+    RegionCreateComponent, 
     RegionEditComponent, 
   ],
   imports: [
     CommonModule,
     RegionRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule,
+    FormsModule
   ],
   providers:[
     RegionService

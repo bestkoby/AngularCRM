@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  isLoggedIm = localStorage.getItem("token");
   title = 'AugularCRMApp';
+  logout(){
+    localStorage.removeItem("token")
+    localStorage.clear()
+  }
 }

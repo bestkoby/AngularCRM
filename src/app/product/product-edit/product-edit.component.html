@@ -1,1 +1,79 @@
-<p>product-edit works!</p>
+<div *ngIf="isSuccessful"  class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Product  has been Saved</strong> 
+    <a [routerLink]="'/product/list'">Go to Product List</a>
+</div>
+<h1 class="display-4" >Add Product </h1>
+<hr/>
+<form [formGroup]="productform" method="post"> 
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="my-4">
+                    <label >Name</label>
+                    <input type="text" formControlName="name"  class="form-control" placeholder="Enter Name"/>
+                    <div class="text-danger" *ngIf="productform.get('name')?.hasError('required') && productform.get('name')?.touched">Name is Required</div>
+                </div>
+            </div>
+            <div class="col">
+                 <div class="my-4">
+                    <label >SupplierId</label>
+                    <select formControlName="supplierId" class="form-control" asp-items="ViewBag.Supplier" >
+                        <option value="">Select a Supplier</option>   
+                    </select> 
+                    <div class="text-danger" *ngIf="productform.get('supplierId')?.hasError('required') && productform.get('supplierId')?.touched">SupplierId is Required</div>
+                </div>
+            </div >
+            <div class="col">
+                <div class="my-4">
+                    <label >CategoryId</label>
+                     <select formControlName="categoryId" class="form-control" asp-items="ViewBag.Category" >
+                        <option value="">Select a Category</option>   
+                    </select>  
+                    <div class="text-danger" *ngIf="productform.get('categoryId')?.hasError('required') && productform.get('categoryId')?.touched">CategoryId is Required</div>
+                </div>
+            </div> 
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="my-4">
+                <label >QuantityPerUnit</label>
+                <input type="text" formControlName="quantityPerUnit" class="form-control" placeholder="Enter QuantityPerUnit"/>
+                <div class="text-danger" *ngIf="productform.get('QuantityPerUnit')?.hasError('required') && productform.get('quantityPerUnit')?.touched">QuantityPerUnit is Required</div>
+            </div>  
+            </div>
+            <div class="col">
+                 <div class="my-4">
+                    <label >UnitPrice</label>
+                    <input type="number" formControlName="unitPrice" class="form-control" placeholder="Enter UnitPrice"/>
+                    <div class="text-danger" *ngIf="productform.get('unitPrice')?.hasError('required') && productform.get('unitPrice')?.touched">UnitPrice is Required</div>
+                </div>
+            </div >
+            <div class="col">
+                <div class="my-4">
+                    <label >UnitInStock</label>
+                    <input type="number" formControlName="unitInStock" class="form-control" placeholder="Enter UnitInStock"/>
+                    <div class="text-danger" *ngIf="productform.get('unitInStock')?.hasError('required') && productform.get('unitInStock')?.touched">UnitInStock is Required</div>
+                </div>
+            </div>  
+         </div>
+         <div class="row">
+             <div class="col">
+                <div class="my-4">
+                   <label >UnitOnOrder</label>
+                    <input type="number" formControlName="unitOnOrder" class="form-control" placeholder="Enter UnitOnOrder"/>
+                    <div class="text-danger" *ngIf="productform.get('unitOnOrder')?.hasError('required') && productform.get('unitOnOrder')?.touched">UnitOnOrder is Required</div>
+                </div>
+            </div>  
+            <div class="col">
+                <div class="my-4">
+                    <label >ReorderLevel</label>
+                    <input type="number" formControlName="reorderLevel" class="form-control" placeholder="Enter ReorderLevel"/>
+                    <div class="text-danger" *ngIf="productform.get('reorderLevel')?.hasError('required') && productform.get('reorderLevel')?.touched">ReorderLevel is Required</div>
+                </div> 
+            </div>   
+        </div> 
+        <input type="submit" class="btn-primary btn" value="Create" [disabled]="!productform.valid" (click)="addProduct()" />
+        <input type="button" value="Reset" class="btn btn-warning" (click) = "reset()" />
+        <input type="button" value="Cancel" class="btn btn-secondary" (click) = "cancel()" /> 
+    </div>
+</form>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Region } from 'src/app/model/region';
+import { RegionService } from 'src/services/region.service';
 
 
 @Component({
@@ -8,17 +11,15 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./region-create.component.scss']
 })
 export class RegionCreateComponent implements OnInit {
-
+ 
   addRegionForm:FormGroup; 
   loadregion={
-    "regionName" : "regionName",
-    "regionDescrip":"regionDescrip" 
+    "Name" : "regionName", 
   };
-  constructor() {
+  isSuccessful:boolean=false;
+  constructor(private regionService:RegionService, private router:Router) {
     this.addRegionForm=new FormGroup({
-      'regionName':new FormControl("",[Validators.required,Validators.minLength(4)] ),
-      'regionDescrip':new FormControl()
-
+      'Name':new FormControl("",[Validators.required,Validators.minLength(4)] ),  
     });
     this.addRegionForm.setValue(this.loadregion);
    }
@@ -28,6 +29,19 @@ export class RegionCreateComponent implements OnInit {
   }
   saveRegion() {
      console.log(this.addRegionForm.value);
+     const region:Region = this.addRegionForm.value; 
+     console.log(region);
+     this.regionService.addRegion(region).subscribe((data)=>{
+      this.isSuccessful = true 
+     })
+  }
+
+  reset(){
+    this.addRegionForm.reset();
+  }
+
+  cancel(){
+    this.router.navigate(["region/list"])
   }
 
 }

@@ -1,5 +1,5 @@
 export interface Shipper{
-    Id:number,
-    Name:string,
-    Phone:string
+    id:number,
+    name:string,
+    phone:string
 }
